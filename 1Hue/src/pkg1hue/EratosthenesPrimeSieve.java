@@ -31,18 +31,16 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
     
 
     @Override
-    public void printPrimes() {
-        for (int i = 0; i <= obergrenze; i++) {
-            
-            if(isPrime(i)==true)
-            {
-                System.out.println(i);
-            }
-            else
-            {
-                System.out.println(i + "keine prim");
+    public void printPrimes(int[] l) {
+        
+        for( int i = 2; i < l.length; i++)
+        {
+            if(l[i]==1) {
+                System.out.println(i + " ");
             }
         }
+        System.out.println();
+        
     }
     
 }
