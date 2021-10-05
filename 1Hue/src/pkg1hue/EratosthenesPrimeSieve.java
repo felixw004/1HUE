@@ -17,8 +17,16 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
 
     @Override
     public boolean isPrime(int p) {
-        return false;
-    }
+        //Math sqrt = Quadratwurzel
+        
+         { if (p <= 1) {
+        return false; }
+        for (int i = 2; i <= Math. sqrt(p); i++) { if (p % i == 0) {
+            return false; }
+        } return true;
+        }
+        }
+    
 
     @Override
     public void printPrimes() {
