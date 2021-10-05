@@ -10,9 +10,11 @@ package pkg1hue;
  */
 public class EratosthenesPrimeSieve implements PrimeSieve{
     
-    public EratosthenesPrimeSieve()
+    int obergrenze;
+    
+    public EratosthenesPrimeSieve(int obergrenze)
     {
-        
+        this.obergrenze = obergrenze;
     }
 
     @Override
@@ -30,6 +32,17 @@ public class EratosthenesPrimeSieve implements PrimeSieve{
 
     @Override
     public void printPrimes() {
+        for (int i = 0; i <= obergrenze; i++) {
+            
+            if(isPrime(i)==true)
+            {
+                System.out.println(i);
+            }
+            else
+            {
+                System.out.println(i + "keine prim");
+            }
+        }
     }
     
 }
