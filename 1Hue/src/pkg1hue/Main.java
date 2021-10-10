@@ -18,23 +18,26 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        System.out.println("start");
-        System.out.println();
-        System.out.println("obergrenze eingeben");
-
-        Scanner sc = new Scanner(System.in);
-        int obergrenze = sc.nextInt();
-
-        int[] zahlen = legeArrayAn(obergrenze);
-        bereiteArrayVor(zahlen);
-        pruefeIndex(zahlen);
-
-        EratosthenesPrimeSieve e = new EratosthenesPrimeSieve(obergrenze);
-        e.printPrimes(zahlen);
-
+//        System.out.println("start");
+//        System.out.println();
+//        System.out.println("obergrenze eingeben");
+//
+//        Scanner sc = new Scanner(System.in);
+//        int obergrenze = sc.nextInt();
+//
+//        int[] zahlen = legeArrayAn(obergrenze);
+//        bereiteArrayVor(zahlen);
+//        pruefeIndex(zahlen);
+//
+//        EratosthenesPrimeSieve e = new EratosthenesPrimeSieve(obergrenze);
+//        e.printPrimes(zahlen);
+//
         ArrayList<Integer> geradenbisOG = new ArrayList<Integer>();
+        ArrayList<Integer> primesbisOG = new ArrayList<Integer>();
         geradenbisOG = allegeradenbisobergrenze(10);
-        primzahlenbisobergrenze(10);
+        primesbisOG = primzahlenbisobergrenze(10);
+
+        primeplusprimeistgerade(geradenbisOG, primesbisOG);
 
     }
 
@@ -88,7 +91,7 @@ public class Main {
         return geraden;
     }
 
-    public static void primzahlenbisobergrenze(int obergrenze2) {
+    public static ArrayList<Integer> primzahlenbisobergrenze(int obergrenze2) {
 
         ArrayList<Integer> primes = new ArrayList<Integer>();
         EratosthenesPrimeSieve e1 = new EratosthenesPrimeSieve(obergrenze2);
@@ -97,10 +100,18 @@ public class Main {
 
             if (e1.isPrime(i) == true) {
                 primes.add(i);
-                System.out.println(i);
             }
 
         }
+        return primes;
+    }
+
+    public static void primeplusprimeistgerade(ArrayList<Integer> geraden, ArrayList<Integer> primes) {
+
+        int[] geradennew = geraden.stream().mapToInt(i -> i).toArray();
+        int[] primesnew = primes.stream().mapToInt(i -> i).toArray();
+
+        System.out.println(geradennew[0]);
 
     }
 
